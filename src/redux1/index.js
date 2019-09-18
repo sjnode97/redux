@@ -1,7 +1,7 @@
 // console.log("redux");
 import {createStore} from "redux";
 
-function gg(state=0,action){
+function reduces(state=0,action){
     switch (action.type) {
         case "qibing" :
             return state+5
@@ -12,16 +12,13 @@ function gg(state=0,action){
     }
 }
 
-let store = createStore(gg)
+let store = createStore(reduces)
 
 function listener(){
     let getCurrent = store.getState()
     console.log(`现在是${getCurrent}`);
 }
 store.subscribe(listener)
-
-
-
 store.dispatch({
     type:"qibing"
 })
