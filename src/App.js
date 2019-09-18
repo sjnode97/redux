@@ -1,14 +1,30 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-export default function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+export default class App extends Component{
+    render(){
 
-        66666
-      </header>
-    </div>
-  );
+        let {store,add,remove}=this.props
+        // console.log(store,add,remove)
+        return (
+
+            <div className="App">
+                <input type="button"
+                defaultValue={"添加"}
+                       onClick={()=>{
+                           store.dispatch(add())
+                       }}
+                />
+                <input type="button"
+                       defaultValue={"减少"}
+                       onClick={()=>{
+                           store.dispatch(remove())
+                       }}
+                />
+                <h2>{store.getState()}</h2>
+            </div>
+        )
+    }
+
 }
 
 
